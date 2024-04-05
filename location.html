@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Location</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div>
+        <h1 id="title">iPhone 12</h1>
+        <p id="sub">Recreated in HTML, CSS, JS</p>
+    </div>
+
+    <div class="main">
+        <div class="side left">
+            <div class="dash left top"></div>
+
+            <div class="audio">
+                <div class="side ringer"></div>
+                <div class="side volume up"></div>
+                <div class="side volume down"></div>
+            </div>
+
+            <div class="dash left bottom"></div>
+        </div>
+
+        <div class="iphone iphoneLocation" id="iphone">
+            <div class="dash top"></div>
+
+            <div class="inner" id="inner">
+                <div class="top">
+                    <div class="left">
+                        <!-- <p>Spectrum</p> -->
+                    </div>
+                    <div class="center">
+                        <div class="mic">
+                        </div>
+
+                        <div class="cam">
+
+                        </div>
+
+                    </div>
+
+                    <div class="right">
+                        <div class="using"></div>
+                        <!-- <ion-icon name="cellular" class="cellular"></ion-icon>
+
+							<img src="wifi.png" class="wifi">
+
+							<img src="battery.png" class="battery"> -->
+                    </div>
+                </div>
+
+
+                <div class="content">
+                    <div class="top">
+
+                    </div>
+
+                    <div class="bottom">
+
+                    </div>
+                </div>
+
+                <a href="index.html" class="homeLink">
+                    <div class="home cam"></div>
+                </a>
+
+                <div class="dash bottom"></div>
+            </div>
+
+            <!-- Pin -->
+            <div class="pin" id="pin"></div>
+
+            <!-- Tooltip -->
+            <div class="tooltip" id="tooltip">
+                Tooltip Text
+            </div>
+        </div>
+
+        <div class="side right">
+            <div class="dash right top"></div>
+
+            <div class="side power" onclick="turnOffLock()"></div>
+
+
+            <div class="dash right bottom"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+
+
+<style>
+    .iphone.iphoneLocation {
+        background-image: none;
+        background-color: #050007;
+
+    }
+
+    .iphone .inner {
+        background-image: url("Images/Backgrounds/map.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .iphone .inner .top {
+        background-color: #262626b0;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+    }
+
+    .iphone .inner .top .right .using {
+        border-radius: 50%;
+        width: 5px;
+        height: 5px;
+        background-color: #4be640;
+        position: relative;
+        left: 5px;
+        top: -2px;
+    }
+
+    .iphone .inner .content .top {
+        display: flex;
+        justify-content: center;
+        background-color: #262626b0;
+        border-radius: 0;
+        height: 100px;
+        gap: 130px;
+        width: 100%;
+    }
+
+    .iphone .inner .content .top>* {
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .iphone .inner .content .bottom {
+        background-color: #262626b0;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        height: 80px;
+        position: relative;
+        top: 342%;
+        width: 100%;
+    }
+
+    .iphone .inner .content .bottom .mode {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        font-family: 'Compact';
+        position: relative;
+        bottom: 20px;
+    }
+
+    .iphone .inner .content .bottom .mode>* {
+        cursor: pointer;
+    }
+
+    .iphone .inner .content .bottom .mode .active {
+        color: #f8d651;
+    }
+
+
+    .iphone .inner .content .bottom .mode .bent {
+        transform: rotateY(50deg);
+        display: inline-block;
+    }
+
+    .iphone .inner .content .bottom .mode .bent.slo {
+        position: relative;
+        left: 7px;
+    }
+
+    .iphone .inner .content .bottom .mode .bent.no {
+        position: relative;
+        right: 6px;
+    }
+
+    .iphone .inner .content .bottom .mode .bent .last2 {
+        color: #FBFAFB;
+    }
+
+    .iphone .inner .content .bottom .mode .bent .last1 {
+        color: #A8A8A8;
+    }
+
+    .iphone .inner .content .bottom .mode .bent .last0 {
+        color: #838383;
+    }
+
+
+
+    .iphone .inner .content .bottom .zoom {
+        border-radius: 20px;
+        background-color: #26262659;
+        width: 100px;
+        position: relative;
+        top: -50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* align-items: center; */
+        gap: 10px;
+        padding: 5px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        /* border: 2px solid; */
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .iphone .inner .content .bottom .zoom .level {
+        border-radius: 50%;
+        background-color: #262626b0;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Compact';
+        cursor: pointer;
+    }
+
+    .iphone .inner .content .bottom .zoom .level._1 {
+        font-size: 17px;
+        width: 30px;
+        height: 30px;
+        color: #f8d651;
+    }
+
+    .iphone .inner .content .bottom .zoom .level._1 .x {
+        font-size: 14px;
+    }
+
+
+
+
+
+    .iphone .inner .content .bottom .main {
+        display: flex;
+        justify-content: center;
+        box-shadow: none;
+        border-radius: 0;
+        gap: 90px;
+        align-items: center;
+    }
+
+    .iphone .inner .content .bottom .main .photos {
+        background-color: #161616;
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition-duration: 0.2s;
+    }
+
+    .iphone .inner .content .bottom .main .photos:active {
+        transform: scale(0.95);
+    }
+
+    .iphone .inner .content .bottom .main .border {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        border: 3px solid #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .iphone .inner .content .bottom .main .border .capture {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        background-color: #ffffff;
+        border: 2px solid #ffffff;
+        cursor: pointer;
+        transition-duration: 0.2s;
+    }
+
+    .iphone .inner .content .bottom .main .border .capture:active {
+        transform: scale(0.9);
+    }
+
+    .iphone .inner .content .bottom .main .background {
+        cursor: pointer;
+        transition-duration: 0.2s;
+        background-color: #262626b0;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .iphone .inner .content .bottom .main .background .rotate {
+        width: 25px;
+        height: 20px;
+    }
+
+    .iphone .inner .content .bottom .main .background .rotate:active {
+        transform: scale(0.9);
+    }
+
+    .iphone .inner .homeLink {
+        margin-top: 594px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    .pin {
+        position: absolute;
+        width: 50px;
+        /* Adjust as needed */
+        height: 50px;
+        /* Adjust as needed */
+        top: 50%;
+        /* Adjust to position the pin vertically */
+        left: 50%;
+        /* Adjust to position the pin horizontally */
+        transform: translate(-50%, -50%);
+        background: url('./Images/Icons/map-pin.png') no-repeat center center;
+        background-size: contain;
+        cursor: pointer;
+    }
+
+    /* Styling for the tooltip */
+    .tooltip {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px 12px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        font-size: 14px;
+        color: #333;
+        display: block; /* change it to none when intially hidden */
+        /* Initially hide the tooltip */
+
+        top: 42%;
+        height: 38px;
+    }
+
+    /* Tooltip arrow */
+    .tooltip:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        width: 0;
+        height: 0;
+        border-top: 5px solid #fff;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+    }
+
+    /* Show tooltip on hover */
+    .pin:hover+.tooltip {
+        display: block;
+    }
+</style>
+
+
+<script>
+
+
+</script>

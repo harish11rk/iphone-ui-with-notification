@@ -128,6 +128,10 @@ function showNotification() {
     setTimeout(() => {
         notification.style.display = 'flex';
     }, 3000); // Show after 3 seconds
+
+	notification.addEventListener("click", () => {
+		window.location.href = "location.html";			
+	});
 }
 
 showNotification();
