@@ -12,6 +12,7 @@
     <div>
         <h1 id="title">iPhone 12</h1>
         <p id="sub">Recreated in HTML, CSS, JS</p>
+        <img src="./Images/Icons/database.gif"/>
     </div>
 
     <div class="main">
@@ -58,7 +59,11 @@
 
                 <div class="content">
                     <div class="top">
-
+                        <div class="header"></div>
+                        <div class="menu">
+                            <p class="active">Offers on your card</p>
+                            <p>Special Offers for you on Other cards</p>
+                        </div>
                     </div>
 
                     <div class="bottom">
@@ -78,7 +83,8 @@
 
             <!-- Tooltip -->
             <div class="tooltip" id="tooltip">
-                Tooltip Text
+                <p>Use Platinum Rewards Card at Clothing Store A in the Shopping Mall to get 20% off!</p>
+                <button class="button">Get Directions</button>
             </div>
         </div>
 
@@ -115,7 +121,7 @@
     }
 
     .iphone .inner .top {
-        background-color: #262626b0;
+        background-color: #fff;
         border-top-left-radius: 40px;
         border-top-right-radius: 40px;
     }
@@ -132,12 +138,32 @@
 
     .iphone .inner .content .top {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        background-color: #262626b0;
+        background-color: #fff;
         border-radius: 0;
         height: 100px;
-        gap: 130px;
+        /* gap: 130px; */
         width: 100%;
+    }
+
+    .iphone .inner .content .top .menu {
+        display: flex;
+    }
+
+    .iphone .inner .content .top .menu p {
+        width: 50%;
+        color: black;
+        height: 50px;
+        font-weight: 700;
+    }
+
+    .iphone .inner .content .top .header {
+        height: 20px;
+    }
+
+    .iphone .inner .content .top .menu .active {
+        border-bottom: 4px solid #4caf50;
     }
 
     .iphone .inner .content .top>* {
@@ -360,11 +386,22 @@
         border-radius: 5px;
         font-size: 14px;
         color: #333;
-        display: block; /* change it to none when intially hidden */
+        display: block;
+        /* change it to none when intially hidden */
         /* Initially hide the tooltip */
 
-        top: 42%;
-        height: 38px;
+
+        top: 37%;
+        height: 155px;
+        display: flex;
+        flex-direction: column;
+        animation: moveUpDown 0.5s infinite alternate;
+        /* Animation */
+    }
+
+    .tooltip p {
+        font-size: 16px;
+        text-align: center;
     }
 
     /* Tooltip arrow */
@@ -384,6 +421,31 @@
     /* Show tooltip on hover */
     .pin:hover+.tooltip {
         display: block;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+    @keyframes moveUpDown {
+        0% {
+            transform: translate(-50%, -50%);
+        }
+
+        100% {
+            transform: translate(-50%, -70%);
+            /* Adjust the value to move the pin up and down */
+        }
     }
 </style>
 
